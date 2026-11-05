@@ -1,0 +1,261 @@
+
+/* ------------------------------------------------------------------
+   Emil Hassan / React handoff redesign
+   ------------------------------------------------------------------ */
+@font-face {
+  font-family: "PP Kyoto";
+  src: url("/PPKyoto-Medium.otf") format("opentype");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "EB Garamond";
+  src: url("/EBGaramond-VariableFont_wght.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sometype Mono";
+  src: url("/SometypeMono-VariableFont_wght.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+:root {
+  --bg: #ffffff;
+  --fg: #000000;
+  --rule: #9a9a9a;
+  --surface: #ffffff;
+  --muted: #858585;
+  --nav-border: #111111;
+}
+:root[data-theme="dark"] {
+  --bg: #181818;
+  --fg: #f4f2ee;
+  --rule: #686868;
+  --surface: #222222;
+  --muted: #a3a3a3;
+  --nav-border: #777777;
+  color-scheme: dark;
+}
+html, body, #root { min-height: 100%; }
+html { background: var(--bg); color: var(--fg); scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--fg); transition: background-color .25s ease, color .25s ease; }
+.page { background: var(--bg); color: var(--fg); padding-top: clamp(16px, 2vw, 28px); }
+.stage, .track { background: var(--bg); }
+.word { color: var(--fg); }
+
+/* Boxed navigation inspired by the Mother Design reference */
+.nav {
+  display: block;
+  padding: 0;
+  margin: 0;
+  color: var(--fg);
+  mix-blend-mode: normal;
+  font-family: var(--font-site);
+  font-size: clamp(13px, 1.05vw, 16px);
+}
+.nav-shell {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  min-height: 48px;
+  border: 1px solid var(--nav-border);
+  width: 100%;
+}
+.nav-main { display: flex; align-items: stretch; min-width: 0; }
+.brand-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 58px;
+  padding: 0 15px;
+  background: var(--fg);
+  color: var(--bg) !important;
+  border-right: 1px solid var(--nav-border);
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: -7px;
+  padding-right: 21px;
+  text-decoration: none !important;
+}
+.nav nav {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+.nav nav a {
+  display: flex;
+  align-items: center;
+  padding: 0 clamp(14px, 2vw, 28px);
+  border-right: 1px solid var(--nav-border);
+  color: var(--fg);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background .2s ease, color .2s ease;
+}
+:root:not([data-theme="dark"]) .nav nav a,
+:root:not([data-theme="dark"]) .theme-toggle,
+:root:not([data-theme="dark"]) .theme-toggle span { color: #000 !important; }
+.nav nav a:hover { background: var(--fg); color: var(--bg); text-decoration: none; }
+:root:not([data-theme="dark"]) .nav nav a:hover {
+  background: transparent;
+  color: #000 !important;
+}
+.nav nav a:focus-visible, .brand-mark:focus-visible, .theme-toggle:focus-visible {
+  outline: 2px solid var(--fg); outline-offset: 3px; position: relative; z-index: 2;
+}
+.theme-toggle {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0;
+  min-width: 104px;
+  border: 0;
+  border-left: 1px solid var(--nav-border);
+  background: var(--bg);
+  color: var(--fg);
+  cursor: pointer;
+  font: inherit;
+}
+.theme-toggle span {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+  line-height: 1;
+}
+.theme-toggle .theme-light { display: none; }
+:root[data-theme="dark"] .theme-toggle .theme-dark { display: none; }
+:root[data-theme="dark"] .theme-toggle .theme-light { display: flex; }
+.theme-toggle:hover { background: var(--fg); color: var(--bg); }
+
+/* Statement occupies the previously empty band between navigation and approach */
+.manifesto {
+  padding: clamp(66px, 9.3vw, 138px) 0 clamp(62px, 8.2vw, 116px);
+  text-align: center;
+}
+.manifesto h1 {
+  margin: 0 auto;
+  max-width: 17ch;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(38px, 6.2vw, 92px);
+  line-height: .98;
+  letter-spacing: -.045em;
+  text-wrap: balance;
+}
+.manifesto p {
+  margin: clamp(22px, 3vw, 38px) auto 0;
+  max-width: 100%;
+  font-family: var(--font-mono);
+  font-size: clamp(9px, 1.15vw, 14px);
+  line-height: 1.5;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+.approach { margin-top: 0; }
+
+/* Keep the existing drawer artwork legible in both themes */
+.dw { --dw-line: var(--fg); }
+.dw-fill, .dw-fold .dw-fill { fill: var(--surface); }
+.dw-tab { color: var(--fg); }
+.dw-title { color: var(--fg); }
+.dw-peek { color: #111; }
+.dw-front .dw-title { color: var(--fg); }
+.dw-back .dw-tabfill { fill: var(--surface); }
+.dw-fold[data-all] .dw-tab { color: #fff; }
+:root[data-theme="dark"] .dw-peek { color: #111; }
+:root[data-theme="dark"] .dw-front .dw-skirt path { fill: var(--surface); }
+:root[data-theme="dark"] .dw-back .dw-tab { color: var(--fg); }
+:root[data-theme="dark"] .dw-back.is-dark .dw-tab { color: #fff; }
+:root[data-theme="dark"] .dw-cat,
+:root[data-theme="dark"] .dw-blurb { color: rgba(0,0,0,.62); }
+
+/* Footer: no marquee, editorial information layout and a large scramble wordmark */
+.ft { background: var(--bg); color: var(--fg); border-top: 1px solid var(--fg); }
+.ft-marq { display: none !important; }
+.ft-bar {
+  min-height: 0;
+  background: var(--bg);
+  color: var(--fg);
+  padding: clamp(28px, 4vw, 58px) max(clamp(20px, 8vw, 48px), env(safe-area-inset-right, 0px)) 16px max(clamp(20px, 8vw, 48px), env(safe-area-inset-left, 0px));
+  gap: clamp(42px, 7vw, 100px);
+}
+.ft-top { align-items: flex-start; }
+.ft-title { font-size: clamp(34px, 4.8vw, 68px); }
+.ft-copy { max-width: 27em; color: var(--fg); }
+.ft-sign { color: var(--muted); }
+.ft-links h3 { color: var(--muted); }
+.ft-links a { border-bottom-color: transparent; }
+.ft-links a:hover { border-bottom-color: var(--fg); }
+.ft-base {
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  padding-top: 13px;
+}
+.ft-name {
+  overflow: hidden;
+  width: 100%;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(72px, 17.5vw, 290px);
+  line-height: .78;
+  letter-spacing: -.095em;
+  white-space: nowrap;
+  color: var(--fg);
+  padding: 0 0 .08em;
+  user-select: none;
+}
+.ft-name span { display: inline-block; cursor: default; }
+:root[data-theme="dark"] .ft { border-color: var(--rule); }
+:root[data-theme="dark"] .ft-bar { background: var(--bg); color: var(--fg); }
+:root[data-theme="dark"] .ft-copy { color: var(--fg); }
+:root[data-theme="dark"] .ft-base { border-color: var(--rule); }
+
+/* Supporting dark-mode surfaces for the existing contact and reading views */
+:root[data-theme="dark"] .ct-panel,
+:root[data-theme="dark"] .nt-panel,
+:root[data-theme="dark"] .ab-panel {
+  background: #202020;
+  color: #f4f2ee;
+  border-color: #777;
+}
+:root[data-theme="dark"] .ct-lede,
+:root[data-theme="dark"] .ct-done p,
+:root[data-theme="dark"] .ct-or,
+:root[data-theme="dark"] .ct-or a { color: #c5c5c5; }
+:root[data-theme="dark"] .ct-f input,
+:root[data-theme="dark"] .ct-f textarea { color: #f4f2ee; border-bottom-color: #777; }
+:root[data-theme="dark"] .ct-f input::placeholder,
+:root[data-theme="dark"] .ct-f textarea::placeholder { color: #888; }
+:root[data-theme="dark"] .ct-send { background: #f4f2ee; color: #181818; border-color: #f4f2ee; }
+:root[data-theme="dark"] .ct-send:hover { background: transparent; color: #f4f2ee; }
+:root[data-theme="dark"] .ct-x { color: #f4f2ee; }
+
+@media (max-width: 620px) {
+  .nav-shell { min-height: 44px; }
+  .brand-mark { min-width: 46px; padding-left: 10px; padding-right: 16px; font-size: 20px; }
+  .nav nav a { padding: 0 10px; font-size: 12px; }
+  .theme-toggle { min-width: 48px; }
+  .theme-toggle span { font-size: 18px; }
+  .manifesto { padding-top: 72px; padding-bottom: 66px; }
+  .manifesto h1 { max-width: 13ch; font-size: clamp(38px, 9vw, 58px); }
+  .manifesto-break { display: none; }
+  .manifesto p { max-width: 32ch; line-height: 1.8; letter-spacing: .08em; }
+  .ft-top { gap: 32px; }
+  .ft-links { margin-left: 0; }
+  .ft-name { font-size: 17vw; }
+}
+@media (max-width: 400px) {
+  .nav nav a { padding: 0 7px; font-size: 11px; }
+  .brand-mark { min-width: 40px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .ft-name span { transition: none; }
+}
