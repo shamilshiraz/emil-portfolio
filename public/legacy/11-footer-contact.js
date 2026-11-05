@@ -42,26 +42,6 @@
         '<div class="ft-name" aria-label="Emil Hassan"><span data-scramble>Emil Hassan</span></div>' +
         '<div class="ft-base"><span>&copy; 2026 Emil Hassan</span><span>made with curiosity</span></div>' +
       '</div>';
-    var word = f.querySelector('[data-scramble]');
-    if (!word) return;
-    var original = 'Emil Hassan', chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', timer = 0;
-    function scramble() {
-      if (timer) clearInterval(timer);
-      var frame = 0, total = 22;
-      timer = setInterval(function () {
-        frame++;
-        word.textContent = original.split('').map(function (ch, i) {
-          if (ch === ' ') return ' ';
-          if (i < Math.floor((frame / total) * original.length)) return ch;
-          return chars[Math.floor(Math.random() * chars.length)];
-        }).join('');
-        if (frame >= total) { clearInterval(timer); timer = 0; word.textContent = original; }
-      }, 28);
-    }
-    word.addEventListener('mouseenter', scramble);
-    word.addEventListener('focus', scramble);
-    word.setAttribute('tabindex', '0');
-    word.setAttribute('aria-label', 'Emil Hassan');
   }
   [].forEach.call(document.querySelectorAll('[data-footer]'), build);
 

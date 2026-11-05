@@ -177,25 +177,25 @@ body { background: var(--bg); color: var(--fg); transition: background-color .25
 :root[data-theme="dark"] .dw-blurb { color: rgba(0,0,0,.62); }
 
 /* Footer: no marquee, editorial information layout and a large scramble wordmark */
-.ft { background: var(--bg); color: var(--fg); border-top: 1px solid var(--fg); }
+.ft { background: #2a2c82; color: #fff; border-top: 1px solid #2a2c82; }
 .ft-marq { display: none !important; }
 .ft-bar {
   min-height: 0;
-  background: var(--bg);
-  color: var(--fg);
+  background: #2a2c82;
+  color: #fff;
   padding: clamp(28px, 4vw, 58px) max(clamp(20px, 8vw, 48px), env(safe-area-inset-right, 0px)) 16px max(clamp(20px, 8vw, 48px), env(safe-area-inset-left, 0px));
   gap: clamp(42px, 7vw, 100px);
 }
 .ft-top { align-items: flex-start; }
 .ft-title { font-size: clamp(34px, 4.8vw, 68px); }
-.ft-copy { max-width: 27em; color: var(--fg); }
-.ft-sign { color: var(--muted); }
-.ft-links h3 { color: var(--muted); }
+.ft-copy { max-width: 27em; color: #fff; }
+.ft-sign { color: rgba(255,255,255,.7); }
+.ft-links h3 { color: rgba(255,255,255,.6); }
 .ft-links a { border-bottom-color: transparent; }
 .ft-links a:hover { border-bottom-color: var(--fg); }
 .ft-base {
-  border-top: 1px solid var(--rule);
-  color: var(--muted);
+  border-top: 1px solid rgba(255,255,255,.35);
+  color: rgba(255,255,255,.78);
   padding-top: 13px;
 }
 .ft-name {
@@ -207,15 +207,12 @@ body { background: var(--bg); color: var(--fg); transition: background-color .25
   line-height: .78;
   letter-spacing: -.095em;
   white-space: nowrap;
-  color: var(--fg);
+  color: #fff;
   padding: 0 0 .08em;
   user-select: none;
 }
 .ft-name span { display: inline-block; cursor: default; }
-:root[data-theme="dark"] .ft { border-color: var(--rule); }
-:root[data-theme="dark"] .ft-bar { background: var(--bg); color: var(--fg); }
-:root[data-theme="dark"] .ft-copy { color: var(--fg); }
-:root[data-theme="dark"] .ft-base { border-color: var(--rule); }
+:root[data-theme="dark"] .ft { border-color: #2a2c82; }
 
 /* Supporting dark-mode surfaces for the existing contact and reading views */
 :root[data-theme="dark"] .ct-panel,
