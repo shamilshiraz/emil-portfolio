@@ -177,11 +177,11 @@ body { background: var(--bg); color: var(--fg); transition: background-color .25
 :root[data-theme="dark"] .dw-blurb { color: rgba(0,0,0,.62); }
 
 /* Footer: no marquee, editorial information layout and a large scramble wordmark */
-.ft { background: #2a2c82; color: #fff; border-top: 1px solid #2a2c82; }
+.ft { background: #ad1f23; color: #fff; border-top: 1px solid #ad1f23; }
 .ft-marq { display: none !important; }
 .ft-bar {
   min-height: 0;
-  background: #2a2c82;
+  background: #ad1f23;
   color: #fff;
   padding: clamp(28px, 4vw, 58px) max(clamp(20px, 8vw, 48px), env(safe-area-inset-right, 0px)) 16px max(clamp(20px, 8vw, 48px), env(safe-area-inset-left, 0px));
   gap: clamp(42px, 7vw, 100px);
@@ -212,7 +212,7 @@ body { background: var(--bg); color: var(--fg); transition: background-color .25
   user-select: none;
 }
 .ft-name span { display: inline-block; cursor: default; }
-:root[data-theme="dark"] .ft { border-color: #2a2c82; }
+:root[data-theme="dark"] .ft { border-color: #ad1f23; }
 
 /* Supporting dark-mode surfaces for the existing contact and reading views */
 :root[data-theme="dark"] .ct-panel,

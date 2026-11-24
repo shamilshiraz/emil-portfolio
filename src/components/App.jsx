@@ -8,6 +8,7 @@ import Experiments from './Experiments.jsx';
 import Footer from './Footer.jsx';
 import LegacyOverlays from './LegacyOverlays.jsx';
 import LegacyScripts from './LegacyScripts.jsx';
+import AboutIntro from './AboutIntro.jsx';
 
 export default function App() {
   const [theme, setTheme] = useState(() => {
@@ -40,7 +41,8 @@ export default function App() {
       <div className="page">
         <SiteHeader />
         <Manifesto />
-        <Approach />
+        <AboutIntro/>
+        {/* <Approach /> */}
         <WorksDrawer />
         <Experiments />
       </div>

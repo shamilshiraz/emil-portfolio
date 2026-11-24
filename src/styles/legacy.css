@@ -7,7 +7,8 @@ html.pre{background:#000}html.pre body{visibility:hidden}
 :root {
   --bg: #ffffff;
   --fg: #000000;
-  --indigo: #2A2C82;
+  --indigo: #ad1f23;
+  --intro-accent: #ad1f23;
   --font-display: "EB Garamond", Georgia, "Times New Roman", serif;
   --rule: #9a9a9a;
   --font-body: "PP Kyoto", Georgia, "Times New Roman", serif;
@@ -30,7 +31,7 @@ body { background: var(--bg); color: var(--fg); margin: 0; overflow-x: hidden; }
   font-size: clamp(2.6rem, 7vw, 6rem);
   line-height: 1; letter-spacing: -0.01em; white-space: nowrap;
 }
-.slot { flex: none; width: 0; height: 0; position: relative; overflow: hidden; background: var(--indigo); }
+.slot { flex: none; width: 0; height: 0; position: relative; overflow: hidden; background: var(--intro-accent); }
 
 /* landing page, sized to the full stage by script */
 .site {
