@@ -1,0 +1,7 @@
+/* Global base styles */
+:root{--serif:'EB Garamond',Georgia,'Times New Roman',serif;--mono:'JetBrains Mono',ui-monospace,Menlo,monospace;--sans:'Host Grotesk',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#000;color-scheme:dark;scrollbar-gutter:stable;overscroll-behavior-x:none}
+body{background:#000;color:#fff;font-family:'Host Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.mono{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase}
+.chroma{text-shadow:4px 0 rgba(255,40,110,.28),-4px 0 rgba(0,150,255,.3)}

@@ -3,12 +3,14 @@ import IntroStage from './IntroStage.jsx';
 import SiteHeader from './SiteHeader.jsx';
 import Manifesto from './Manifesto.jsx';
 import Approach from './Approach.jsx';
-import WorksDrawer from './WorksDrawer.jsx';
+// import WorksDrawer from './WorksDrawer.jsx';
 import Experiments from './Experiments.jsx';
 import Footer from './Footer.jsx';
 import LegacyOverlays from './LegacyOverlays.jsx';
 import LegacyScripts from './LegacyScripts.jsx';
 import AboutIntro from './AboutIntro.jsx';
+import SelectedWorks from '../selected-works/components/SelectedWorks.jsx';
+import { projects } from '../selected-works/data/projects.js';
 
 export default function App() {
   const [theme, setTheme] = useState(() => {
@@ -43,7 +45,8 @@ export default function App() {
         <Manifesto />
         <AboutIntro/>
         {/* <Approach /> */}
-        <WorksDrawer />
+        <SelectedWorks projects={projects} />
+        {/* <WorksDrawer /> */}
         <Experiments />
       </div>
       <Footer />

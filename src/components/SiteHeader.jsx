@@ -6,7 +6,7 @@ export default function SiteHeader() {
     <>
       <style>{`
         .site-nav {
-          position: fixed;
+          position: sticky;
           top: 0;
           left: 0;
           width: 100%;
